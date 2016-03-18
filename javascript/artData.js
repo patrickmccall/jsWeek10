@@ -210,6 +210,15 @@
 	};
 	  //build list function
 
+	function buildListItems(myObject, targetElement) {
+	  //start a variable to build up a list with
+	  var output = "";
+	  for (var i in myObject) {
+	    output += '<img src="/myPath/myImage.jpg"/>';
+
+	  }
+	}
+
 	  //fade image in
 
 	  //fade image out
