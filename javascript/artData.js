@@ -208,21 +208,32 @@
 			years : ""
 		}
 	};
+	  // setup some buttons for the images inthe divs
+    $("#oil img, #water-color img, #drawing img")
+
+
 	  //build list function
 
 	function buildListItems(myObject, targetElement) {
 	  //start a variable to build up a list with
 	  var output = "";
 	  for (var i in myObject) {
-	    output += '<img src="/myPath/myImage.jpg"/>';
+	    output += '<img src="'+ myObject[i].img +'"/>';
 
 	  }
+    targetElement.innerHTML = output
 	}
-
+	buildListItems(drawingObj, drawingDiv);
+	buildListItems(watercolorObj, watercolorDiv);
+	buildListItems(oilObj, oilDiv);
 	  //fade image in
 
+	$("#oil img:first-child").attr("class", "activeImg");
 	  //fade image out
-
+    //remember the not filter expects a dot (.) for the class i.e. .activeImg instead of #activeImg
+	var allImages = $("#water-color img, #drawing img, #oil img").not(".activeImg");
+   
+	TweenMax.staggerTo(allImages, 1, { alpha: 0.5 }, 0.2);
     //selected image
 
 });//closing document.ready
